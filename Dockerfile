@@ -1,6 +1,6 @@
 ARG RUST_VERSION=1.86.0
 
-FROM ubuntu:24.04 
+FROM ubuntu:24.04
 ARG DEBIAN_FRONTEND=noninteractive
 ARG RUST_VERSION
 RUN yes | unminimize
@@ -18,8 +18,8 @@ WORKDIR /home/devuser
 ENV TERM="xterm-256color"
 ADD https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash .git-completion.bash
 ADD https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh .git-prompt.sh
-COPY dotfiles/bashrc .bashrc
-COPY .gitconfig .gitconfig
+COPY ../dotfiles/bashrc .bashrc
+COPY ../.gitconfig .gitconfig
 RUN chown -R devuser /home/devuser
 USER devuser
 # install Rust using rustup
